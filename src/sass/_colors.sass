@@ -1,0 +1,36 @@
+$green: #42f498 
+
+=colordefs($color)
+  color: $color 
+  border-color: $color
+  transition: all 0.4s ease
+
+  &:focus
+    outline: none
+  &::-webkit-slider-runnable-track
+    background: $color !important
+  &::-webkit-slider-thumb 
+    background: $color !important
+  &:focus::-webkit-slider-runnable-track 
+    background: $color !important
+  &::-moz-range-track 
+    background: $color !important 
+  &::-moz-range-thumb 
+    background: $color !important 
+  &::-ms-track 
+    background: $color !important 
+  &::-ms-thumb 
+    background: $color !important 
+  &:focus::-ms-fill-lower 
+    background: $color
+  &:focus::-ms-fill-upper 
+    background: $color
+
+  &.button:hover
+    cursor: pointer
+    background: $color
+    color: white !important
+
+
+.green
+  +colordefs($green)

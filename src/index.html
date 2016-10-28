@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Pomodoro clock</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+    <script src="https://use.fontawesome.com/557076d4e8.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <div id="top-wrapper">
+      <div id="clock-wrapper">
+        <div id="clock-face" class="green">
+          13:25 
+        </div> 
+      </div>
+      <div id="dials-wrapper">
+
+        <div id="timesliders" class="green">
+
+          <div class="timeslider">
+            <div class="label"> Work </div>
+            <input type="range" min="0" max="60" value="25" step="1" 
+                   id="workslider" class="minuteslider green">
+            <div id="workminutes" class="time"> 25 </div>
+          </div>
+          <div class="timeslider">
+            <div class="label"> Break </div>
+            <input type="range" min="0" max="60" value="25" step="1" 
+                   id="breakslider" class="minuteslider green">
+            <div id="breakminutes" class="time"> 5 </div>
+          </div>
+        </div>
+
+        <div id="button-wrapper">
+          <div id="start" class="button big-button green">
+              <i class="fa fa-play"></i>
+          </div>
+          <div id="reset" class="button big-button green">
+            <i class="fa fa-undo"></i>
+          </div>
+        </div>
+
+        <div id="sounds-wrapper">
+          <div id="rain" class="button small-button green">
+            <i class="fa fa-umbrella"></i>
+          </div>
+          <div id="fire" class="button small-button green">
+            <i class="fa fa-fire"></i>
+          </div>
+          <div id="wind" class="button small-button green">
+            <i class="fa fa-leaf"></i>
+          </div>
+          <div id="volume" class="button small-button green">
+            <i class="fa fa-volume-up"></i>
+          </div>
+          <div id="volumeslider">
+            <input type="range" min="0" max="100" value="80" step="1" 
+                   class="volumelider green">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
