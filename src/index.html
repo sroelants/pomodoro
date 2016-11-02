@@ -7,13 +7,20 @@
     <script src="https://use.fontawesome.com/557076d4e8.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!--build:css css/style.min.css-->
+    <link href="css/style.css" rel="stylesheet" id="style">
+    <!-- endbuild -->
   </head>
   <body>
     <div id="top-wrapper">
       <div id="clock-wrapper">
         <div id="clock-face" class="green">
-          13:25 
+          <div id="clock-animation-left-semicircle" class="animation clock-animation green pause"></div>
+          <div id="clock-animation-right-mask" class="animation clock-animation pause"></div>
+          <div id="clock-animation-right-semicircle" class="animation clock-animation green pause"></div>
+          <div id="time" class="work"> 
+            25:00 
+          </div>
         </div> 
       </div>
       <div id="dials-wrapper">
@@ -22,13 +29,13 @@
 
           <div class="timeslider">
             <div class="label"> Work </div>
-            <input type="range" min="0" max="60" value="25" step="1" 
+            <input type="range" min="1" max="60" value="25" step="1" 
                    id="workslider" class="minuteslider green">
             <div id="workminutes" class="time"> 25 </div>
           </div>
           <div class="timeslider">
             <div class="label"> Break </div>
-            <input type="range" min="0" max="60" value="25" step="1" 
+            <input type="range" min="1" max="30" value="5" step="1" 
                    id="breakslider" class="minuteslider green">
             <div id="breakminutes" class="time"> 5 </div>
           </div>
@@ -56,12 +63,15 @@
           <div id="volume" class="button small-button green">
             <i class="fa fa-volume-up"></i>
           </div>
-          <div id="volumeslider">
+          <div id="volume-wrapper">
             <input type="range" min="0" max="100" value="80" step="1" 
-                   class="volumelider green">
+                   id="volumeslider" class="green">
           </div>
         </div>
       </div>
     </div>
+    <!--build:js js/main.min.js-->
+    <script src="js/main.js"></script>
+    <!-- endbuild -->
   </body>
 </html>

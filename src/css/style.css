@@ -105,13 +105,96 @@ body {
   transform: translate(-50%, -50%);
   width: 90%;
   height: 80%;
-  border: 3px solid;
   border-radius: 50%;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 65px;
+  font-size: 80px;
   display: flex;
   justify-content: center;
   align-items: center; }
+
+#time {
+  position: relative;
+  z-index: 20; }
+
+.work:after {
+  font-size: 30px;
+  content: 'Work';
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 100%); }
+
+.break:after {
+  font-size: 30px;
+  content: 'Break';
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 100%); }
+
+.clock-animation {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  animation-timing-function: linear;
+  animation-iteration-count: 1; }
+
+#clock-animation-left-semicircle {
+  left: 0px;
+  top: 0;
+  border: solid 4px;
+  border-right: 0px;
+  border-radius: 100%/50%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  animation-name: animation-left;
+  transform-origin: 100% 50%; }
+
+#clock-animation-right-semicircle {
+  right: 2px;
+  top: 0;
+  border: solid 4px;
+  border-left: 0px;
+  border-radius: 100%/50%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  animation-name: animation-right;
+  transform-origin: 0% 50%; }
+
+#clock-animation-right-mask {
+  right: -2px;
+  top: -2px;
+  z-index: -10;
+  background: white;
+  animation-name: animation-mask; }
+
+.pause {
+  animation-play-state: paused; }
+
+@keyframes animation-right {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes animation-left {
+  0% {
+    transform: rotate(0deg); }
+  50% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(180deg); } }
+
+@keyframes animation-mask {
+  0% {
+    z-index: -10; }
+  49.9% {
+    z-index: -10; }
+  50.1% {
+    z-index: 10; }
+  100% {
+    z-index: 10; } }
 
 #dials-wrapper {
   position: relative;
@@ -129,12 +212,16 @@ body {
   #timesliders .time {
     display: inline-block; }
 
+.timeslider {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10%; }
+
 .minuteslider {
   width: 65%;
   display: inline-block;
   margin-left: 5%;
-  margin-bottom: 10%;
-  transform: translateY(-150%); }
+  margin-right: 5%; }
 
 .button {
   display: inline-block;
@@ -176,7 +263,7 @@ body {
   height: 100%;
   font-size: 18px; }
 
-#volumeslider {
+#volume-wrapper {
   margin-left: 4%;
   display: inline-block;
   width: auto !important;
@@ -184,10 +271,20 @@ body {
   top: 50%;
   transform: translateY(-45%); }
 
+#volumeslider {
+  width: 100%;
+  opacity: 1;
+  transition: all 0.3s ease; }
+
+.disabled {
+  width: 0% !important;
+  opacity: 0 !important;
+  transition: all 0.3s ease !important; }
+
 .green {
+  transition: color 0.4s, background-color 0.4s ease;
   color: #42f498;
-  border-color: #42f498;
-  transition: all 0.4s ease; }
+  border-color: #42f498; }
   .green:focus {
     outline: none; }
   .green::-webkit-slider-runnable-track {
@@ -212,3 +309,78 @@ body {
     cursor: pointer;
     background: #42f498;
     color: white !important; }
+  .green.active {
+    background: #42f498;
+    color: white; }
+
+.red {
+  transition: color 0.4s, background-color 0.4s ease;
+  color: red;
+  border-color: red; }
+  .red:focus {
+    outline: none; }
+  .red::-webkit-slider-runnable-track {
+    background: red !important; }
+  .red::-webkit-slider-thumb {
+    background: red !important; }
+  .red:focus::-webkit-slider-runnable-track {
+    background: red !important; }
+  .red::-moz-range-track {
+    background: red !important; }
+  .red::-moz-range-thumb {
+    background: red !important; }
+  .red::-ms-track {
+    background: red !important; }
+  .red::-ms-thumb {
+    background: red !important; }
+  .red:focus::-ms-fill-lower {
+    background: red; }
+  .red:focus::-ms-fill-upper {
+    background: red; }
+  .red.button:hover {
+    cursor: pointer;
+    background: red;
+    color: white !important; }
+  .red.active {
+    background: red;
+    color: white; }
+
+@media (orientation: landscape) and (max-width: 666px) {
+  #top-wrapper {
+    width: 90vw;
+    height: 45vw; } }
+
+@media (orientation: landscape) and (max-width: 600px) {
+  #clock-face {
+    font-size: 60px; }
+  .minuteslider {
+    width: 50%; } }
+
+@media (orientation: portrait) {
+  #top-wrapper {
+    width: 360px;
+    height: 600px; }
+  #clock-wrapper {
+    width: 75%;
+    height: 50%;
+    margin: 0 auto;
+    float: none; }
+  #dials-wrapper {
+    width: 100%;
+    height: 50%; } }
+
+@media (orientation: portrait) and (max-width: 400px) {
+  #top-wrapper {
+    width: 90vw;
+    height: 167vw; }
+  #clock-wrapper {
+    width: 80%;
+    height: 50%;
+    margin: 0 auto;
+    float: none; } }
+
+@media (orientation: portrait) and (max-width: 350px) {
+  #clock-face {
+    font-size: 60px; }
+  .minuteslider {
+    width: 50%; } }

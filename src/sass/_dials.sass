@@ -16,12 +16,18 @@
   .time
     display: inline-block
 
+.timeslider
+  display: flex
+  align-items: center
+  margin-bottom: 10%
+
 .minuteslider
   width: 65%
   display: inline-block
   margin-left: 5%
-  margin-bottom: 10%
-  transform: translateY(-150%)
+  margin-right: 5%
+  // margin-bottom: 10%
+  // transform: translateY(-150%)
 
 .button
   display: inline-block
@@ -64,7 +70,7 @@
   height: 100%
   font-size: 18px
 
-#volumeslider
+#volume-wrapper
   margin-left: 4%
   display: inline-block
   width: auto !important
@@ -72,3 +78,14 @@
   top: 50%
   transform: translateY(-45%)
 
+
+#volumeslider
+  width: 100%
+  opacity: 1
+  transition: all 0.3s ease
+
+  
+.disabled
+  width: 0% !important
+  opacity: 0 !important
+  transition: all 0.3s ease !important

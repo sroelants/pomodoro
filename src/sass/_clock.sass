@@ -13,12 +13,105 @@
   width: 90%
   height: 80%
 
-  border: 3px solid
+  // border: 3px solid
   border-radius: 50%
 
-  font-family: 'Roboto Mono', monospace
-  font-size: 65px
+  // font-family: 'Roboto Mono', monospace
+  // font-size: 65px
+  font-size: 80px
   display: flex
   justify-content: center
   align-items: center
+
+
+#time
+  position: relative
+  z-index: 20
+
+.work:after
+  font-size: 30px
+  content: 'Work'
+  text-transform: uppercase
+  position: absolute
+  bottom: 0px
+  left: 50%
+  transform: translate(-50%, 100%) 
+
+.break:after
+  font-size: 30px
+  content: 'Break'
+  text-transform: uppercase
+  position: absolute
+  bottom: 0px
+  left: 50%
+  transform: translate(-50%, 100%) 
+
+.clock-animation
+  width: 50% 
+  height: 100%
+  position: absolute
+
+  animation-timing-function: linear
+  animation-iteration-count: 1
+
+#clock-animation-left-semicircle
+  left: 0px
+  top: 0
+  border: solid 4px
+  border-right: 0px
+
+  border-radius: 100%/50%
+  border-top-right-radius: 0
+  border-bottom-right-radius: 0
+
+  animation-name: animation-left
+  transform-origin: 100% 50%
+
+#clock-animation-right-semicircle
+  right: 2px
+  top: 0
+  border: solid 4px
+  border-left: 0px
+
+  border-radius: 100%/50%
+  border-top-left-radius: 0
+  border-bottom-left-radius: 0
+
+  animation-name: animation-right
+  transform-origin: 0% 50%
+
+#clock-animation-right-mask
+  right: -2px
+  top: -2px
+  z-index: -10
+  background: white
+  
+  animation-name: animation-mask
+
+.pause
+  animation-play-state: paused
+
+@keyframes animation-right
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+@keyframes animation-left
+  0%
+    transform: rotate(0deg)
+  50%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(180deg)
+
+@keyframes animation-mask
+  0%
+    z-index: -10
+  49.9%
+    z-index: -10
+  50.1%
+    z-index: 10
+  100%
+    z-index: 10
 

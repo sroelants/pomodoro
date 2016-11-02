@@ -1,9 +1,10 @@
 $green: #42f498 
+$red: red
 
 =colordefs($color)
+  transition: color 0.4s, background-color 0.4s ease
   color: $color 
   border-color: $color
-  transition: all 0.4s ease
 
   &:focus
     outline: none
@@ -26,11 +27,18 @@ $green: #42f498
   &:focus::-ms-fill-upper 
     background: $color
 
+
   &.button:hover
     cursor: pointer
     background: $color
     color: white !important
 
+  &.active
+    background: $color
+    color: white
+
 
 .green
   +colordefs($green)
+.red
+  +colordefs($red)
